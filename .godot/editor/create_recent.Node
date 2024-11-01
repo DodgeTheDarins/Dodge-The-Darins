@@ -1,6 +1,6 @@
+AudioStreamPlayer2D
 CollisionShape2D
 TextureRect
-AudioStreamPlayer2D
 ColorRect
 Timer
 Button

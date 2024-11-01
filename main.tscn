@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2jrpgg8mnug"]
+[gd_scene load_steps=10 format=3 uid="uid://b2jrpgg8mnug"]
 
 [ext_resource type="PackedScene" uid="uid://0rc4c6wrwk8a" path="res://player.tscn" id="1_6sv0l"]
 [ext_resource type="Script" path="res://main.gd" id="1_8b17j"]
 [ext_resource type="PackedScene" uid="uid://beyt7vvav8jw2" path="res://mob.tscn" id="2_fvk5n"]
 [ext_resource type="Texture2D" uid="uid://cdji6muxkcoyw" path="res://art/DSCF0104.JPG" id="3_lrysn"]
 [ext_resource type="PackedScene" uid="uid://c1knb00ax4r0" path="res://hud.tscn" id="4_tovij"]
-[ext_resource type="AudioStream" uid="uid://fi72koc2exqk" path="res://art/gameover.wav" id="5_7erg8"]
-[ext_resource type="AudioStream" uid="uid://c32fe1ns1pagq" path="res://art/5824598018490368.wav" id="6_2tt5d"]
+[ext_resource type="AudioStream" uid="uid://c32fe1ns1pagq" path="res://music/5824598018490368.wav" id="6_owil3"]
+[ext_resource type="AudioStream" uid="uid://fi72koc2exqk" path="res://music/gameover.wav" id="7_b14pb"]
+[ext_resource type="AudioStream" uid="uid://dlw8pt4ymdrbi" path="res://music/cat.ogg" id="8_uuyan"]
 
 [sub_resource type="Curve2D" id="Curve2D_cyfup"]
 _data = {
@@ -64,13 +65,16 @@ rotation = 0.00416664
 
 [node name="HUD" parent="." instance=ExtResource("4_tovij")]
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music1" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(992, 552)
-stream = ExtResource("6_2tt5d")
+stream = ExtResource("6_owil3")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(992, 552)
-stream = ExtResource("5_7erg8")
+stream = ExtResource("7_b14pb")
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_uuyan")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
