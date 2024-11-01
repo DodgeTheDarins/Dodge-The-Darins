@@ -1,0 +1,14 @@
+CollisionShape2D
+TextureRect
+AudioStreamPlayer2D
+ColorRect
+Timer
+Button
+Label
+CanvasLayer
+PathFollow2D
+Path2D
+Marker2D
+Node
+VisibleOnScreenNotifier2D
+AnimatedSprite2D
