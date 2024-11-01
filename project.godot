@@ -10,33 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Dodge the Darins"
-config/name_localized={
-"cmn_CA": "zao shang hao zhong guo xian zai wo you bing ji ling"
-}
-config/description="Dodge the Darins is a fun game in which you play as Colton, and need to move around the Alex to avoid touching the Darins that will spawn."
+config/name="New Game Project"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://art/DSCF0129.png"
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/resizable=false
-window/size/borderless=true
+window/size/viewport_width=480
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="res://art/kirby.png"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
-[editor_plugins]
-
-enabled=PackedStringArray()
 
 [input]
 
@@ -62,8 +45,7 @@ move_down={
 }
 start_game={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 w={
@@ -86,16 +68,3 @@ d={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
 ]
 }
-
-[internationalization]
-
-locale/translation_add_builtin_strings_to_pot=true
-locale/locale_filter_mode=0
-
-[rendering]
-
-textures/vram_compression/import_etc2_astc=true
-anti_aliasing/quality/msaa_2d=1
-viewport/hdr_2d=true
-anti_aliasing/quality/use_taa=true
-2d/snap/snap_2d_transforms_to_pixel=true

@@ -1,42 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://beyt7vvav8jw2"]
+[gd_scene load_steps=10 format=3 uid="uid://beyt7vvav8jw2"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_l0df3"]
-[ext_resource type="Texture2D" uid="uid://hr6pnp8rfhvd" path="res://art/DSCF0075.png" id="4_hwehs"]
-[ext_resource type="Texture2D" uid="uid://c8wg1qkqufhw" path="res://art/DSCF0078.png" id="5_j7j4c"]
-[ext_resource type="Texture2D" uid="uid://de05nxa7svqoa" path="res://art/DSCF0085.png" id="6_jchdp"]
-[ext_resource type="Texture2D" uid="uid://i57oxdmgm4sq" path="res://art/DSCF0043.png" id="6_pp6wd"]
-[ext_resource type="Texture2D" uid="uid://cnfewt0n8bxny" path="res://art/DSCF0045.png" id="7_30fuh"]
+[ext_resource type="Texture2D" uid="uid://bat8ghj86tujt" path="res://art/DSCF0075.JPG" id="2_ixp2w"]
+[ext_resource type="Texture2D" uid="uid://bl3h05lbwwcus" path="res://art/DSCF0078.JPG" id="3_mme57"]
+[ext_resource type="Texture2D" uid="uid://cch5251yl4c3h" path="res://art/DSCF0144.JPG" id="4_yoin1"]
+[ext_resource type="Texture2D" uid="uid://cwrj24ufp5q3s" path="res://art/DSCF0129.JPG" id="5_jeano"]
+[ext_resource type="Texture2D" uid="uid://b0r3ogb4gus2f" path="res://art/DSCF0043.JPG" id="6_pb1fl"]
+[ext_resource type="Texture2D" uid="uid://bdq224iarlgxh" path="res://art/DSCF0045.JPG" id="7_nl8gl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vdek"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_pp6wd")
+"texture": ExtResource("2_ixp2w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_30fuh")
+"texture": ExtResource("3_mme57")
 }],
 "loop": true,
-"name": &"Snow Darin",
+"name": &"fly",
 "speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hwehs")
+"texture": ExtResource("4_yoin1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_j7j4c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_jchdp")
+"texture": ExtResource("5_jeano")
 }],
 "loop": true,
-"name": &"Snow Darin 2",
+"name": &"swim",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pb1fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nl8gl")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f71p"]
-size = Vector2(92, 70)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkhx0"]
+radius = 84.8835
+height = 172.536
 
 [node name="Mob" type="RigidBody2D"]
 collision_mask = 0
@@ -45,12 +55,15 @@ script = ExtResource("1_l0df3")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_1vdek")
-animation = &"Snow Darin 2"
+animation = &"walk"
 frame = 1
-frame_progress = 0.514531
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+frame_progress = 0.0270666
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1f71p")
+position = Vector2(13, 0)
+scale = Vector2(0.424111, 0.397732)
+shape = SubResource("CapsuleShape2D_nkhx0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

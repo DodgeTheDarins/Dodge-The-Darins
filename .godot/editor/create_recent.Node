@@ -1,4 +1,3 @@
-CollisionShape2D
 TextureRect
 AudioStreamPlayer2D
 ColorRect
@@ -11,4 +10,6 @@ Path2D
 Marker2D
 Node
 VisibleOnScreenNotifier2D
+CollisionShape2D
 AnimatedSprite2D
+RigidBody2D

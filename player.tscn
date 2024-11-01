@@ -1,19 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://0rc4c6wrwk8a"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_0ys8i"]
-[ext_resource type="Texture2D" uid="uid://bhg6gentmrpy4" path="res://art/up.png" id="2_7cski"]
-[ext_resource type="Texture2D" uid="uid://dmwilwywdjwe2" path="res://art/neutral.png" id="3_a08tf"]
-[ext_resource type="Texture2D" uid="uid://c4up3rvg64mhe" path="res://art/moving.png" id="4_hip8o"]
-[ext_resource type="Texture2D" uid="uid://cu3r6mu1eqa4f" path="res://art/neutral2.png" id="5_xfekf"]
+[ext_resource type="Texture2D" uid="uid://d0p4rw0fslw0x" path="res://art/up.jpg" id="2_ul2ix"]
+[ext_resource type="Texture2D" uid="uid://16fejb12a2bq" path="res://art/neutral.jpg" id="3_3fx4b"]
+[ext_resource type="Texture2D" uid="uid://bsd61kdmpl76i" path="res://art/moving.jpg" id="4_f7vcp"]
+[ext_resource type="Texture2D" uid="uid://cdiniw27gc0ae" path="res://art/neutral2.jpg" id="5_4d34w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ndcen"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7cski")
+"texture": ExtResource("2_ul2ix")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_a08tf")
+"texture": ExtResource("3_3fx4b")
 }],
 "loop": true,
 "name": &"up",
@@ -21,24 +21,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hip8o")
+"texture": ExtResource("4_f7vcp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_xfekf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_hip8o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_a08tf")
+"texture": ExtResource("5_4d34w")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6hh5"]
-size = Vector2(22.7128, 45.2705)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_og3mu"]
 
 [node name="Player" type="Area2D"]
 gravity_point = true
@@ -50,13 +43,12 @@ metadata/_edit_group_ = true
 metadata/_edit_vertical_guides_ = [-714.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_ndcen")
 animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.5, 20)
 scale = Vector2(2.68571, 2.2973)
-shape = SubResource("RectangleShape2D_w6hh5")
+shape = SubResource("CapsuleShape2D_og3mu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
