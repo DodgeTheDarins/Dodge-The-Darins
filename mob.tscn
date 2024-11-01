@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://beyt7vvav8jw2"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_l0df3"]
+[ext_resource type="Texture2D" uid="uid://hr6pnp8rfhvd" path="res://art/DSCF0075.png" id="4_hwehs"]
+[ext_resource type="Texture2D" uid="uid://c8wg1qkqufhw" path="res://art/DSCF0078.png" id="5_j7j4c"]
+[ext_resource type="Texture2D" uid="uid://de05nxa7svqoa" path="res://art/DSCF0085.png" id="6_jchdp"]
+[ext_resource type="Texture2D" uid="uid://i57oxdmgm4sq" path="res://art/DSCF0043.png" id="6_pp6wd"]
+[ext_resource type="Texture2D" uid="uid://cnfewt0n8bxny" path="res://art/DSCF0045.png" id="7_30fuh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vdek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pp6wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_30fuh")
+}],
+"loop": true,
+"name": &"Snow Darin",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hwehs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j7j4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jchdp")
+}],
+"loop": true,
+"name": &"Snow Darin 2",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f71p"]
+size = Vector2(92, 70)
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_l0df3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1vdek")
+animation = &"Snow Darin 2"
+frame = 1
+frame_progress = 0.514531
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1f71p")
