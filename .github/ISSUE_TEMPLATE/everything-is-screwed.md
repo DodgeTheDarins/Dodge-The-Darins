@@ -1,5 +1,5 @@
 ---
-name: Everything is f**ked
+name: Everything is screwed
 about: Tell us what is messed up
 title: OH NO SOMETHING IS WRONG PLS FIX RIGHT NOW
 labels: ''
