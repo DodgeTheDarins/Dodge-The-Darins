@@ -17,7 +17,7 @@ config/name_localized={
 config/description="Dodge the Darins is a fun game in which you play as Colton, and need to move around the Alex to avoid touching the Darins that will spawn."
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://art/DSCF0129.png"
+boot_splash/image="res://art/loading.png"
 config/icon="res://icon.svg"
 
 [display]
