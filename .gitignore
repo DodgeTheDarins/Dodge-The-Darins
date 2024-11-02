@@ -1,8 +1,10 @@
 # Godot 4+ specific ignores
-.godot/
+.godot/**
 /android/
 /addons/
 *.exe
 *.x86_64
 /web/
+editor_layout.cfg
+filesystem_cache8
 #hi colton!
