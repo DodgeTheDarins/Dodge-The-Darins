@@ -5,7 +5,7 @@
 /addons/
 *.exe
 *.x86_64
-/web/
+# /web/
 editor_layout.cfg
 filesystem_cache8
 .github/**
