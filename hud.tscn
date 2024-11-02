@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1knb00ax4r0"]
+[gd_scene load_steps=6 format=3 uid="uid://c1knb00ax4r0"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_ba82m"]
 [ext_resource type="FontFile" uid="uid://c4bwmdlkrseru" path="res://fonts/Xolonium-Regular.ttf" id="1_xlugh"]
+[ext_resource type="Texture2D" uid="uid://btm5ooxijn37l" path="res://art/kirby.png" id="3_hy85v"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_kqnfn"]
 action = &"start_game"
@@ -65,17 +66,19 @@ shortcut_in_tooltip = false
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.001
 one_shot = true
 
 [node name="Credits" type="Button" parent="."]
-offset_left = 1816.0
-offset_top = 960.0
-offset_right = 1824.0
-offset_bottom = 968.0
+offset_left = 1772.0
+offset_top = 896.0
+offset_right = 1885.0
+offset_bottom = 957.0
 shortcut_feedback = false
 shortcut_in_tooltip = false
-text = "Creditsyeah"
+text = "Credits"
+icon = ExtResource("3_hy85v")
+alignment = 0
 
 [connection signal="jeremy" from="." to="." method="play_jeremy"]
 [connection signal="start_game" from="." to="." method="new_game"]
