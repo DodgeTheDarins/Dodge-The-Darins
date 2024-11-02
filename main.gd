@@ -5,8 +5,10 @@ var score
 
 var mobspeedlow = 250
 var mobspeedhigh = 350
-var mobspeedspecial = 3000.0
+var mobspeedspecial = 1000.0
 var mobspecialchance = 50
+var music
+var mobspecial
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): pass
@@ -20,23 +22,37 @@ func game_over() -> void:
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
-	$Music1.stop()
-	$Music2.stop()
-	$DeathSound.play()
+	$Music/Music1.stop()
+	$Music/Music2.stop()
+	$Music/Music3.stop()
+	$Music/Sharks.stop()
+	$Music/Shrimp.stop()
+	$Music/Jeremy.stop()
+	$SFX/DeathSound.play()
 	score = 0
 
 func new_game():
+	$Music/Jeremy.stop()
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
-	if randi_range(-1,2) == 0:
-		$Music2.play()
+	music = randi_range(0,4)
+	if music == 0:
+		$Music/Music1.play()
+	elif music == 1:
+		$Music/Music2.play()
+	elif music == 2:
+		$Music/Music3.play()
+	elif music == 3:
+		$Music/Sharks.play()
 	else:
-		$Music1.play()
+		$Music/Shrimp.play()
 	
+func play_jeremy() -> void:
+	$Music/Jeremy.play()
 
 func _on_score_timer_timeout():
 	score += 1
@@ -47,6 +63,8 @@ func _on_start_timer_timeout():
 	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
+	mobspecial = randi_range(0,mobspecialchance)
+
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
@@ -59,13 +77,13 @@ func _on_mob_timer_timeout():
 
 	# Set the mob's position to a random location.r
 	mob.position = mob_spawn_location.position
-
 	# Add some randomness to the direction.
-	direction += randf_range(-PI / 4, PI / 4)
+	if mobspecial != 0:
+		direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
 	var velocity = 0
 	# Choose the velocity for the mob.
-	if randi_range(0,mobspecialchance) == 1:
+	if mobspecial == 0:
 		velocity = Vector2(mobspeedspecial, 0.0)
 	else:
 		velocity = Vector2(randf_range(mobspeedlow, mobspeedhigh), 0.0)

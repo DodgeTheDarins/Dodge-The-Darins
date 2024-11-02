@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal start_game
+signal jeremy
 
 func show_message(text):
 	$MessageLabel.text = text
@@ -14,6 +15,7 @@ func show_game_over():
 	$MessageLabel.text = "Dodge the\nDarrens"
 	$MessageLabel.show()
 	$StartButton.show()
+	$Credits.show()
 
 
 func update_score(score):
@@ -21,7 +23,12 @@ func update_score(score):
 
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
+	$Credits.hide()
 	start_game.emit()
+
+func _on_credits_pressed() -> void:
+	show_message("Made by Jeremy and Eric")
+	jeremy.emit()
 
 func _on_message_timer_timeout() -> void:
 	$MessageLabel.hide()

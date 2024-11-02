@@ -60,12 +60,25 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_xlugh")
 theme_override_font_sizes/font_size = 64
 shortcut = SubResource("Shortcut_a4pd8")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="Credits" type="Button" parent="."]
+offset_left = 1816.0
+offset_top = 960.0
+offset_right = 1824.0
+offset_bottom = 968.0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Creditsyeah"
+
+[connection signal="jeremy" from="." to="." method="play_jeremy"]
 [connection signal="start_game" from="." to="." method="new_game"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

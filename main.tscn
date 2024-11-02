@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2jrpgg8mnug"]
+[gd_scene load_steps=14 format=3 uid="uid://b2jrpgg8mnug"]
 
 [ext_resource type="PackedScene" uid="uid://0rc4c6wrwk8a" path="res://player.tscn" id="1_6sv0l"]
 [ext_resource type="Script" path="res://main.gd" id="1_8b17j"]
@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://dkfupqnwjpkg5" path="res://music/alex.ogg" id="6_rnvrp"]
 [ext_resource type="AudioStream" uid="uid://fi72koc2exqk" path="res://music/gameover.wav" id="7_b14pb"]
 [ext_resource type="AudioStream" uid="uid://dlw8pt4ymdrbi" path="res://music/cat.ogg" id="8_uuyan"]
+[ext_resource type="AudioStream" uid="uid://b2mx7g0ojexmo" path="res://music/house_in_a_forest.ogg" id="9_ghnxu"]
+[ext_resource type="AudioStream" uid="uid://cx0xdgsfhg5t7" path="res://music/sharks.ogg" id="10_hhh83"]
+[ext_resource type="AudioStream" uid="uid://cv7x03075c7yl" path="res://music/shrimp.ogg" id="10_wraj0"]
+[ext_resource type="AudioStream" uid="uid://wiplow7ih5fu" path="res://music/jeremy.ogg" id="12_2jekh"]
 
 [sub_resource type="Curve2D" id="Curve2D_cyfup"]
 _data = {
@@ -38,7 +42,7 @@ texture = ExtResource("3_1emar")
 position = Vector2(992, 552)
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.45
+wait_time = 0.25
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -57,19 +61,37 @@ rotation = 0.00416664
 
 [node name="HUD" parent="." instance=ExtResource("4_tovij")]
 
-[node name="Music1" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(992, 552)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("7_b14pb")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sharks" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("10_hhh83")
+parameters/looping = true
+
+[node name="Shrimp" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("10_wraj0")
+
+[node name="Music3" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("9_ghnxu")
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("8_uuyan")
+
+[node name="Music1" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2(992, 552)
 stream = ExtResource("6_rnvrp")
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(992, 552)
-stream = ExtResource("7_b14pb")
-
-[node name="Music2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_uuyan")
+[node name="Jeremy" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("12_2jekh")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="jeremy" from="HUD" to="." method="play_jeremy"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
