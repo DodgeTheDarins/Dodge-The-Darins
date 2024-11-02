@@ -42,7 +42,7 @@ texture = ExtResource("3_1emar")
 position = Vector2(992, 552)
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.35
 
 [node name="ScoreTimer" type="Timer" parent="."]
 

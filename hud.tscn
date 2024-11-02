@@ -66,7 +66,7 @@ shortcut_in_tooltip = false
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 0.001
+wait_time = 2.0
 one_shot = true
 
 [node name="Credits" type="Button" parent="."]
