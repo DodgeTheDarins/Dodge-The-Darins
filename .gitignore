@@ -5,6 +5,7 @@
 /addons/
 *.exe
 *.x86_64
+*.js
 editor_layout.cfg
 filesystem_cache8
 .github/**
