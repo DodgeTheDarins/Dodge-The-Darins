@@ -13,7 +13,6 @@ func show_game_over():
 	await $MessageTimer.timeout
 	$MessageLabel.text = "Dodge the\nDarrens"
 	$MessageLabel.show()
-	await get_tree().create_timer(1).timeout
 	$StartButton.show()
 
 
