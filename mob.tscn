@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://beyt7vvav8jw2"]
+[gd_scene load_steps=11 format=3 uid="uid://beyt7vvav8jw2"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_l0df3"]
+[ext_resource type="Texture2D" uid="uid://c8att74ehxtvf" path="res://art/paget1.png" id="2_o2bmi"]
+[ext_resource type="Texture2D" uid="uid://xtung068adjf" path="res://art/paget2.png" id="3_2qaen"]
 [ext_resource type="Texture2D" uid="uid://hr6pnp8rfhvd" path="res://art/DSCF0075.png" id="4_hwehs"]
 [ext_resource type="Texture2D" uid="uid://c8wg1qkqufhw" path="res://art/DSCF0078.png" id="5_j7j4c"]
 [ext_resource type="Texture2D" uid="uid://de05nxa7svqoa" path="res://art/DSCF0085.png" id="6_jchdp"]
@@ -9,6 +11,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vdek"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o2bmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2qaen")
+}],
+"loop": true,
+"name": &"Paget 1",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_pp6wd")
@@ -46,9 +59,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1vdek")
-animation = &"Snow Darin 2"
-frame = 1
-frame_progress = 0.514531
+animation = &"Paget 1"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
