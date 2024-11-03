@@ -22,13 +22,13 @@ func game_over() -> void:
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
-	$Player/Music1.stop()
+	$Music/Music1.stop()
 	$Player/Music2.stop()
 	$Player/Music3.stop()
 	$Player/Sharks.stop()
 	$Player/Shrimp.stop()
 	$Player/Jeremy.stop()
-	$SFX/DeathSound.play()
+	$Player/DeathSound.play()
 	score = 0
 
 func new_game():
@@ -41,7 +41,7 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	music = randi_range(0,4)
 	if music == 0:
-		$Player/Music1.play()
+		$Music/Music1.play()
 	elif music == 1:
 		$Player/Music2.play()
 	elif music == 2:
@@ -54,7 +54,7 @@ func new_game():
 func play_jeremy() -> void:
 	$Player/Jeremy.play()
 
-func _on_score_timer_timeout():
+func _on_score_timer_timeout(): 
 	score += 1
 	$HUD.update_score(score)
 

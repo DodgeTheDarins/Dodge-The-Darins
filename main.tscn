@@ -51,11 +51,6 @@ stream = ExtResource("10_wraj0")
 volume_db = -4.193
 panning_strength = 2.0
 
-[node name="Music1" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(992, 552)
-stream = ExtResource("6_rnvrp")
-panning_strength = 2.0
-
 [node name="Jeremy" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("12_2jekh")
 panning_strength = 2.0
@@ -64,6 +59,11 @@ panning_strength = 2.0
 stream = ExtResource("8_uuyan")
 volume_db = -1.0
 panning_strength = 2.0
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("7_b14pb")
+volume_db = 9.6
+panning_strength = 3.0
 
 [node name="Music3" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("9_ghnxu")
@@ -92,11 +92,13 @@ curve = SubResource("Curve2D_cyfup")
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(984, 552)
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("7_b14pb")
-
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(984, 552)
+
+[node name="Music1" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2(992, 552)
+stream = ExtResource("6_rnvrp")
+panning_strength = 0.0
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
