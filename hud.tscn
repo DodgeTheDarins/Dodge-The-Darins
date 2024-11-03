@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://hud.gd" id="1_ba82m"]
 [ext_resource type="FontFile" uid="uid://c4bwmdlkrseru" path="res://fonts/Xolonium-Regular.ttf" id="1_xlugh"]
-[ext_resource type="Texture2D" uid="uid://btm5ooxijn37l" path="res://art/kirby.png" id="3_hy85v"]
+[ext_resource type="Texture2D" uid="uid://bh3vcvitxsmr6" path="res://art/jeremy.png" id="3_qkrct"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_kqnfn"]
 action = &"start_game"
@@ -77,7 +77,7 @@ offset_bottom = 957.0
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Credits"
-icon = ExtResource("3_hy85v")
+icon = ExtResource("3_qkrct")
 alignment = 0
 
 [connection signal="jeremy" from="." to="." method="play_jeremy"]

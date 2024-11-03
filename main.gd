@@ -40,6 +40,7 @@ func new_game():
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 	music = randi_range(0,4)
+	music = 4 
 	if music == 0:
 		$Music/Music1.play()
 	elif music == 1:
@@ -50,7 +51,8 @@ func new_game():
 		$Player/Sharks.play()
 	else:
 		$Player/Shrimp.play()
-	
+
+
 func play_jeremy() -> void:
 	$Player/Jeremy.play()
 
