@@ -31,6 +31,10 @@ func _process(delta):
 			velocity.y += 1
 		if Input.is_action_pressed("w"):
 			velocity.y -= 1
+		if Input.is_action_pressed("kill"):
+			hit.emit()
+			dead = true
+			$CollisionShape2D.set_deferred("disabled", true)
 	
 	if dead == true:
 		velocity.y = 1
@@ -60,17 +64,20 @@ func _process(delta):
 			$AnimatedSprite2D.flip_v = false
 
 
-	position += velocity * delta
+	position += velocity * delta 
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if $StartTimer.is_stopped() == true:
-		hit.emit()
-		dead = true
-		 #Must be deferred as we can't change physics properties on a physics callback.
-		$CollisionShape2D.set_deferred("disabled", true)
+		if Input.is_action_pressed("Cheat") and OS.is_debug_build():
+			pass
+		else:
+			hit.emit()
+			dead = true
+			 #Must be deferred as we can't change physics properties on a physics callback.
+			$CollisionShape2D.set_deferred("disabled", true) 
 	
 func start(pos):
 	position = pos

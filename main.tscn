@@ -15,7 +15,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_cyfup"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 8, 0, 0, 0, 0, 1928, 1096, 0, 0, 0, 0, -16, 1096, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1928, 0, 0, 0, 0, 0, 1928, 1096, 0, 0, 0, 0, 0, 1096, 0, 0, 0, 0, 0, 0)
 }
 point_count = 5
 
@@ -39,7 +39,36 @@ scale = Vector2(0.104138, 0.208335)
 texture = ExtResource("3_1emar")
 
 [node name="Player" parent="." instance=ExtResource("1_6sv0l")]
+position = Vector2(984, 552)
+
+[node name="Sharks" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("10_hhh83")
+panning_strength = 2.0
+parameters/looping = true
+
+[node name="Shrimp" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("10_wraj0")
+volume_db = -4.193
+panning_strength = 2.0
+
+[node name="Music1" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(992, 552)
+stream = ExtResource("6_rnvrp")
+panning_strength = 2.0
+
+[node name="Jeremy" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("12_2jekh")
+panning_strength = 2.0
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("8_uuyan")
+volume_db = -1.0
+panning_strength = 2.0
+
+[node name="Music3" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("9_ghnxu")
+volume_db = 2.0
+panning_strength = 2.0
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.35
@@ -57,39 +86,17 @@ position = Vector2(984, 552)
 curve = SubResource("Curve2D_cyfup")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-rotation = 0.00416664
 
 [node name="HUD" parent="." instance=ExtResource("4_tovij")]
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(992, 552)
+position = Vector2(984, 552)
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("7_b14pb")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Sharks" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("10_hhh83")
-parameters/looping = true
-
-[node name="Shrimp" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("10_wraj0")
-volume_db = -4.193
-
-[node name="Music3" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("9_ghnxu")
-volume_db = 2.0
-
-[node name="Music2" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("8_uuyan")
-
-[node name="Music1" type="AudioStreamPlayer2D" parent="Music"]
-position = Vector2(992, 552)
-stream = ExtResource("6_rnvrp")
-
-[node name="Jeremy" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("12_2jekh")
+position = Vector2(984, 552)
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

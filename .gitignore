@@ -1,5 +1,4 @@
 .godot/**
-.godot\**
 .godot/editor/**
 /android/
 /addons/
