@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2jrpgg8mnug"]
+[gd_scene load_steps=16 format=3 uid="uid://b2jrpgg8mnug"]
 
 [ext_resource type="PackedScene" uid="uid://0rc4c6wrwk8a" path="res://player.tscn" id="1_6sv0l"]
 [ext_resource type="Script" path="res://main.gd" id="1_8b17j"]
@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dun8dw6msjrmd" path="res://art/background.webp" id="3_1emar"]
 [ext_resource type="PackedScene" uid="uid://c1knb00ax4r0" path="res://hud.tscn" id="4_tovij"]
 [ext_resource type="AudioStream" uid="uid://dkfupqnwjpkg5" path="res://music/alex.ogg" id="6_rnvrp"]
-[ext_resource type="AudioStream" uid="uid://fi72koc2exqk" path="res://music/gameover.wav" id="7_b14pb"]
 [ext_resource type="AudioStream" uid="uid://dlw8pt4ymdrbi" path="res://music/cat.ogg" id="8_uuyan"]
 [ext_resource type="AudioStream" uid="uid://b2mx7g0ojexmo" path="res://music/house_in_a_forest.ogg" id="9_ghnxu"]
+[ext_resource type="AudioStream" uid="uid://bwu7dicxoflv0" path="res://music/gameover.ogg" id="9_r8rt6"]
 [ext_resource type="AudioStream" uid="uid://cx0xdgsfhg5t7" path="res://music/sharks.ogg" id="10_hhh83"]
 [ext_resource type="AudioStream" uid="uid://cv7x03075c7yl" path="res://music/shrimp.ogg" id="10_wraj0"]
 [ext_resource type="AudioStream" uid="uid://wiplow7ih5fu" path="res://music/jeremy.ogg" id="12_2jekh"]
+[ext_resource type="Texture2D" uid="uid://0iqgsod3anmo" path="res://art/background2.webp" id="13_0j1mm"]
 
 [sub_resource type="Curve2D" id="Curve2D_cyfup"]
 _data = {
@@ -19,11 +20,26 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_le41o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1emar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0j1mm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.1
+}]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_8b17j")
 mob_scene = ExtResource("2_fvk5n")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,7 +77,7 @@ volume_db = -1.0
 panning_strength = 2.0
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("7_b14pb")
+stream = ExtResource("9_r8rt6")
 volume_db = 9.6
 panning_strength = 3.0
 
@@ -99,6 +115,12 @@ position = Vector2(984, 552)
 position = Vector2(992, 552)
 stream = ExtResource("6_rnvrp")
 panning_strength = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -10
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_le41o")
+autoplay = "default"
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

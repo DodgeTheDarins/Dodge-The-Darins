@@ -14,7 +14,7 @@ var mobspecial
 func _ready(): pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -40,7 +40,6 @@ func new_game():
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 	music = randi_range(0,4)
-	music = 4 
 	if music == 0:
 		$Music/Music1.play()
 	elif music == 1:

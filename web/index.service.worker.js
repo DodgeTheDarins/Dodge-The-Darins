@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1730506437|1087802281';
+const CACHE_VERSION = '1730764155|607924827';
 /** @type {string} */
 const CACHE_PREFIX = 'Dodge the Darins-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

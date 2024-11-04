@@ -58,6 +58,9 @@ script = ExtResource("1_l0df3")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
+auto_translate_mode = 1
 sprite_frames = SubResource("SpriteFrames_1vdek")
 animation = &"Paget 1"
 
